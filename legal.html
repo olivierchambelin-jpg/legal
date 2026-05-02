@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminis — Politique de confidentialité & Conditions d'utilisation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg: #060D18;
+      --bg-grad: #162440;
+      --ivory: #EDE6D8;
+      --ivory-border: rgba(45,79,138,0.22);
+      --blue: #2D4F8A;
+      --blue-mid: #5A8ABF;
+      --blue-light: #7AAFC0;
+      --sage: #7A9483;
+      --text-primary: rgba(255,255,255,0.90);
+      --text-secondary: rgba(255,255,255,0.55);
+      --text-muted: rgba(255,255,255,0.30);
+      --card: rgba(255,255,255,0.05);
+      --card-border: rgba(255,255,255,0.08);
+      --card-hi: rgba(255,255,255,0.08);
+      --card-hi-border: rgba(255,255,255,0.11);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      background-image: radial-gradient(ellipse 80% 60% at 50% 0%, var(--bg-grad) 0%, transparent 65%);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ivory);
+      border-bottom: 2px solid var(--ivory-border);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo-r {
+      font-family: 'Newsreader', serif;
+      font-size: 22px;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .logo-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1A2331;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+    .lang-btn {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+    .lang-btn:not(.active) {
+      background: transparent;
+      color: #5A5048;
+      border-color: rgba(45,79,138,0.25);
+    }
+    .lang-btn:not(.active):hover {
+      background: rgba(45,79,138,0.08);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 52px 40px 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .hero-tag::before, .hero-tag::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--sage);
+      opacity: 0.4;
+    }
+    .hero h1 {
+      font-family: 'Newsreader', serif;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue-light);
+    }
+    .hero p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── TABS ── */
+    .tabs-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 0;
+    }
+    .tab-btn {
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--blue);
+    }
+    .tab-btn:hover:not(.active) {
+      color: var(--text-secondary);
+    }
+
+    /* ── CONTENT ── */
+    .content-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 40px 80px;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Last updated */
+    .last-updated {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      padding: 10px 14px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-number {
+      font-family: 'Newsreader', serif;
+      font-size: 11px;
+      color: var(--blue-mid);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .section h2 {
+      font-family: 'Newsreader', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .section p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .section ul, .section ol {
+      margin: 10px 0 12px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .section li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .section li:last-child { border-bottom: none; }
+    .section li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--blue-mid);
+      opacity: 0.6;
+    }
+
+    /* Highlight card */
+    .highlight {
+      background: rgba(45,79,138,0.12);
+      border: 1px solid rgba(45,79,138,0.25);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .highlight p {
+      color: rgba(255,255,255,0.70);
+      margin-bottom: 0;
+    }
+    .highlight strong {
+      color: var(--blue-light);
+    }
+
+    .highlight-sage {
+      background: rgba(122,148,131,0.10);
+      border-color: rgba(122,148,131,0.22);
+    }
+    .highlight-sage p {
+      color: rgba(255,255,255,0.65);
+    }
+    .highlight-sage strong {
+      color: var(--sage);
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--card-hi);
+      border: 1px solid var(--card-hi-border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-top: 40px;
+    }
+    .contact-card h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .contact-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .contact-card a {
+      color: var(--blue-light);
+      text-decoration: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ivory);
+      border-top: 2px solid var(--ivory-border);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #7A7060;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    /* Hidden by lang */
+    [data-lang] { display: none; }
+    .lang-fr [data-lang="fr"] { display: block; }
+    .lang-en [data-lang="en"] { display: block; }
+    /* For inline elements */
+    span[data-lang] { display: none; }
+    .lang-fr span[data-lang="fr"] { display: inline; }
+    .lang-en span[data-lang="en"] { display: inline; }
+  </style>
+</head>
+<body class="lang-fr">
+
+<header>
+  <a href="#" class="logo">
+    <span class="logo-r">ℛ</span>
+    <span class="logo-name">Reminis</span>
+  </a>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr', this)">Français</button>
+      <button class="lang-btn" onclick="setLang('en', this)">English</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-tag">Documents légaux</div>
+  <h1>
+    <span data-lang="fr">Transparence et <em>confiance.</em></span>
+    <span data-lang="en">Transparency and <em>trust.</em></span>
+  </h1>
+  <p data-lang="fr">Reminis est conçu pour protéger vos souvenirs, pas pour les exploiter. Vos données restent sur votre ordinateur. Toujours.</p>
+  <p data-lang="en">Reminis is designed to protect your memories, not exploit them. Your data stays on your computer. Always.</p>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('privacy', this)">
+      <span data-lang="fr">Politique de confidentialité</span>
+      <span data-lang="en">Privacy Policy</span>
+    </button>
+    <button class="tab-btn" onclick="showTab('terms', this)">
+      <span data-lang="fr">Conditions d'utilisation</span>
+      <span data-lang="en">Terms of Use</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PRIVACY POLICY
+══════════════════════════════════════ -->
+<div class="content-wrapper">
+<div id="tab-privacy" class="tab-content active">
+
+  <div data-lang="fr">
+    <div class="last-updated">📅 Dernière mise à jour : 2 mai 2026 · Version 1.0</div>
+
+    <div class="highlight">
+      <p><strong>Résumé en une phrase :</strong> Reminis n'accède à aucun de vos fichiers sans votre accord, ne transmet aucune donnée à des serveurs externes, et ne vend ni ne partage aucune information vous concernant.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Qui sommes-nous</h2>
+      <p>Reminis est une application de bureau développée et distribuée par <strong>Reminis</strong>, enregistrée au Québec, Canada. Pour toute question relative à la présente politique, vous pouvez nous contacter à l'adresse indiquée en bas de cette page.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Données traitées localement</h2>
+      <p>Reminis fonctionne exclusivement en local sur votre ordinateur. L'application traite les types de données suivants :</p>
+      <ul>
+        <li><strong>Fichiers et photos :</strong> Reminis lit (sans modifier) le contenu de votre dossier sélectionné pour analyser les doublons, les dates EXIF, et les contenus visuels.</li>
+        <li><strong>Données biométriques — visages :</strong> Si vous activez la reconnaissance faciale, Reminis génère des empreintes numériques (embeddings) à partir de vos photos. Ces données ne sont jamais transmises et restent stockées localement dans la base de données SQLite de l'application (~/.reminis/reminis.db).</li>
+        <li><strong>Métadonnées EXIF :</strong> Dates, localisations GPS, appareils photo — lues uniquement pour organiser vos albums. Jamais transmises.</li>
+        <li><strong>Historique des scans :</strong> Les résultats de vos analyses sont conservés localement dans la base de données de l'application pour vous permettre de consulter l'historique.</li>
+        <li><strong>Préférences d'application :</strong> Langue, taille du texte, thème, toggles IA — stockés localement.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Ce que Reminis ne fait jamais</h2>
+      <div class="highlight-sage">
+        <p>Reminis <strong>ne transmet aucune donnée</strong> à des serveurs externes. Aucune photo, aucun fichier, aucune donnée biométrique, aucun historique de scan ne quitte votre ordinateur.</p>
+      </div>
+      <ul>
+        <li>Reminis ne collecte pas de données analytiques sur votre utilisation de l'application.</li>
+        <li>Reminis ne contient aucune publicité et ne partage aucune donnée avec des annonceurs.</li>
+        <li>Reminis ne crée pas de compte utilisateur et ne requiert aucune authentification en ligne.</li>
+        <li>Reminis ne synchronise pas vos données avec le cloud.</li>
+        <li>Reminis ne transmet pas vos données à des tiers, quels qu'ils soient.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Données biométriques — consentement et contrôle</h2>
+      <p>Conformément à la Loi 25 (Québec), au PIPEDA (Canada) et aux lois applicables sur la protection des données biométriques, Reminis applique les principes suivants :</p>
+      <ul>
+        <li><strong>Consentement explicite :</strong> La reconnaissance faciale n'est activée qu'après votre accord explicite via l'écran de consentement biométrique.</li>
+        <li><strong>Stockage local uniquement :</strong> Les embeddings faciaux sont stockés exclusivement dans la base de données locale de l'application. Ils ne sont jamais transmis.</li>
+        <li><strong>Droit de suppression :</strong> Vous pouvez supprimer toutes les données biométriques depuis l'écran "Mes personnes" dans les Paramètres. La suppression est immédiate et irréversible.</li>
+        <li><strong>Désactivation complète :</strong> Vous pouvez désactiver définitivement la reconnaissance faciale depuis les Paramètres. Les données existantes seront supprimées.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Modèles d'intelligence artificielle</h2>
+      <p>Reminis utilise plusieurs modèles IA open-source qui fonctionnent entièrement en local :</p>
+      <ul>
+        <li><strong>CLIP (OpenAI, licence MIT) :</strong> Classification du contenu visuel.</li>
+        <li><strong>DeepFace (Licence MIT) :</strong> Reconnaissance des visages.</li>
+        <li><strong>Real-ESRGAN / GFPGAN (Apache 2.0) :</strong> Restauration de photos.</li>
+        <li><strong>Tesseract OCR (Apache 2.0) :</strong> Lecture des documents.</li>
+        <li><strong>Ollama / phi3:mini (MIT) :</strong> Nommage intelligent des documents.</li>
+      </ul>
+      <p>Ces modèles sont téléchargés une seule fois sur votre appareil lors de la première utilisation et ne nécessitent pas de connexion internet par la suite. Aucune donnée n'est envoyée aux fournisseurs de ces modèles lors de leur utilisation.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Achat in-app et données de paiement</h2>
+      <p>Reminis est distribué via le Microsoft Store. Les achats in-app sont traités exclusivement par Microsoft. Reminis ne collecte, ne traite et n'accède jamais à vos données de paiement. Pour connaître les pratiques de Microsoft en matière de données de paiement, consultez la politique de confidentialité de Microsoft.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Vos droits</h2>
+      <p>Conformément aux lois applicables (Loi 25, PIPEDA, RGPD pour les utilisateurs européens), vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès :</strong> Toutes vos données sont accessibles localement dans la base de données de l'application (~/.reminis/reminis.db).</li>
+        <li><strong>Droit de suppression :</strong> Vous pouvez supprimer toutes les données de l'application en supprimant le fichier reminis.db ou en désinstallant l'application.</li>
+        <li><strong>Droit de retrait du consentement :</strong> Vous pouvez retirer votre consentement biométrique à tout moment depuis les Paramètres.</li>
+        <li><strong>Droit à la portabilité :</strong> Votre historique d'actions est exportable en CSV depuis l'écran de résultats.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Sécurité des données</h2>
+      <p>Reminis utilise SQLite avec les protections natives du système de fichiers Windows pour stocker les données locales. La sécurité de vos données dépend de la sécurité de votre compte Windows et de votre appareil. Nous vous recommandons d'activer le chiffrement de disque (BitLocker) et de maintenir votre système à jour.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Modifications de cette politique</h2>
+      <p>Cette politique peut être mise à jour lors de l'ajout de nouvelles fonctionnalités. La date de dernière mise à jour est indiquée en haut de cette page. Nous vous informerons des modifications significatives via une notification dans l'application.</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Nous contacter</h3>
+      <p>Pour toute question relative à cette politique de confidentialité :</p>
+      <p>📧 <a href="mailto:privacy@reminis.app">privacy@reminis.app</a></p>
+      <p>📍 Québec, Canada</p>
+    </div>
+  </div><!-- end fr -->
+
+  <div data-lang="en">
+    <div class="last-updated">📅 Last updated: May 2, 2026 · Version 1.0</div>
+
+    <div class="highlight">
+      <p><strong>Summary in one sentence:</strong> Reminis does not access any of your files without your consent, transmits no data to external servers, and never sells or shares any information about you.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Who We Are</h2>
+      <p>Reminis is a desktop application developed and distributed by <strong>Reminis</strong>, registered in Quebec, Canada. For any questions regarding this policy, please contact us at the address provided at the bottom of this page.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Data Processed Locally</h2>
+      <p>Reminis operates exclusively locally on your computer. The application processes the following types of data:</p>
+      <ul>
+        <li><strong>Files and photos:</strong> Reminis reads (without modifying) the content of your selected folder to analyze duplicates, EXIF dates, and visual content.</li>
+        <li><strong>Biometric data — faces:</strong> If you enable facial recognition, Reminis generates digital fingerprints (embeddings) from your photos. This data is never transmitted and remains stored locally in the application's SQLite database (~/.reminis/reminis.db).</li>
+        <li><strong>EXIF metadata:</strong> Dates, GPS locations, camera models — read only to organize your albums. Never transmitted.</li>
+        <li><strong>Scan history:</strong> Results of your analyses are kept locally in the application database so you can review your history.</li>
+        <li><strong>Application preferences:</strong> Language, text size, theme, AI toggles — stored locally.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>What Reminis Never Does</h2>
+      <div class="highlight-sage">
+        <p>Reminis <strong>transmits no data</strong> to external servers. No photos, no files, no biometric data, no scan history ever leaves your computer.</p>
+      </div>
+      <ul>
+        <li>Reminis does not collect analytics data about your use of the application.</li>
+        <li>Reminis contains no advertising and shares no data with advertisers.</li>
+        <li>Reminis does not create user accounts and requires no online authentication.</li>
+        <li>Reminis does not sync your data to the cloud.</li>
+        <li>Reminis does not transmit your data to any third parties.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Biometric Data — Consent and Control</h2>
+      <p>In compliance with Quebec Law 25, PIPEDA (Canada), and applicable biometric data protection laws, Reminis applies the following principles:</p>
+      <ul>
+        <li><strong>Explicit consent:</strong> Facial recognition is only activated after your explicit agreement via the biometric consent screen.</li>
+        <li><strong>Local storage only:</strong> Facial embeddings are stored exclusively in the application's local database. They are never transmitted.</li>
+        <li><strong>Right to deletion:</strong> You can delete all biometric data from the "My People" screen in Settings. Deletion is immediate and irreversible.</li>
+        <li><strong>Complete deactivation:</strong> You can permanently disable facial recognition from Settings. Existing data will be deleted.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Artificial Intelligence Models</h2>
+      <p>Reminis uses several open-source AI models that operate entirely locally:</p>
+      <ul>
+        <li><strong>CLIP (OpenAI, MIT License):</strong> Visual content classification.</li>
+        <li><strong>DeepFace (MIT License):</strong> Facial recognition.</li>
+        <li><strong>Real-ESRGAN / GFPGAN (Apache 2.0):</strong> Photo restoration.</li>
+        <li><strong>Tesseract OCR (Apache 2.0):</strong> Document reading.</li>
+        <li><strong>Ollama / phi3:mini (MIT):</strong> Intelligent document naming.</li>
+      </ul>
+      <p>These models are downloaded once to your device upon first use and do not require an internet connection thereafter. No data is sent to the providers of these models during use.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>In-App Purchases and Payment Data</h2>
+      <p>Reminis is distributed through the Microsoft Store. In-app purchases are processed exclusively by Microsoft. Reminis never collects, processes, or accesses your payment data. For Microsoft's payment data practices, please consult Microsoft's privacy policy.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Your Rights</h2>
+      <p>In accordance with applicable laws (Quebec Law 25, PIPEDA, GDPR for European users), you have the following rights:</p>
+      <ul>
+        <li><strong>Right of access:</strong> All your data is accessible locally in the application database (~/.reminis/reminis.db).</li>
+        <li><strong>Right to deletion:</strong> You can delete all application data by deleting the reminis.db file or uninstalling the application.</li>
+        <li><strong>Right to withdraw consent:</strong> You can withdraw your biometric consent at any time from Settings.</li>
+        <li><strong>Right to portability:</strong> Your action history is exportable as CSV from the results screen.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Data Security</h2>
+      <p>Reminis uses SQLite with native Windows file system protections to store local data. The security of your data depends on the security of your Windows account and device. We recommend enabling disk encryption (BitLocker) and keeping your system up to date.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Changes to This Policy</h2>
+      <p>This policy may be updated when new features are added. The last updated date is shown at the top of this page. We will notify you of significant changes via an in-app notification.</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Contact Us</h3>
+      <p>For any questions regarding this privacy policy:</p>
+      <p>📧 <a href="mailto:privacy@reminis.app">privacy@reminis.app</a></p>
+      <p>📍 Quebec, Canada</p>
+    </div>
+  </div><!-- end en -->
+</div><!-- end tab-privacy -->
+
+<!-- ══════════════════════════════════════
+     TERMS OF USE
+══════════════════════════════════════ -->
+<div id="tab-terms" class="tab-content">
+
+  <div data-lang="fr">
+    <div class="last-updated">📅 Dernière mise à jour : 2 mai 2026 · Version 1.0</div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Acceptation des conditions</h2>
+      <p>En téléchargeant, installant ou utilisant Reminis, vous acceptez les présentes Conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
+      <p>Ces conditions s'appliquent à la version Windows de Reminis distribuée via le Microsoft Store.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Description du service</h2>
+      <p>Reminis est une application d'organisation locale de fichiers et photos pour Windows. Elle analyse vos fichiers localement à l'aide d'intelligences artificielles installées sur votre appareil, vous propose des classements et organisations, et vous permet de les approuver ou de les refuser. Reminis ne modifie jamais vos fichiers sans votre accord explicite.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Licence d'utilisation</h2>
+      <p>Sous réserve du respect des présentes conditions, Reminis vous accorde une licence personnelle, non exclusive, non transférable et révocable pour utiliser l'application sur vos appareils personnels.</p>
+      <ul>
+        <li>Vous ne pouvez pas copier, modifier, distribuer ou vendre l'application.</li>
+        <li>Vous ne pouvez pas procéder à de l'ingénierie inverse ou tenter d'extraire le code source.</li>
+        <li>Vous ne pouvez pas utiliser l'application à des fins commerciales sans autorisation écrite.</li>
+        <li>Un abonnement actif ou une version d'essai valide est requis pour accéder à toutes les fonctionnalités.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Version d'essai et abonnement</h2>
+      <p>Reminis est disponible en version d'essai gratuite permettant d'analyser jusqu'à 500 fichiers. Au-delà, un achat via le Microsoft Store est requis.</p>
+      <ul>
+        <li>Les achats sont définitifs. Les remboursements sont soumis à la politique de remboursement du Microsoft Store.</li>
+        <li>Les prix peuvent varier selon les régions et sont affichés en devise locale dans le Store.</li>
+        <li>Reminis se réserve le droit de modifier les tarifs avec un préavis de 30 jours pour les abonnements actifs.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Responsabilités de l'utilisateur</h2>
+      <p>Vous êtes seul responsable :</p>
+      <ul>
+        <li>De la sauvegarde de vos fichiers avant d'utiliser Reminis. Nous vous recommandons fortement d'effectuer une sauvegarde complète avant toute analyse.</li>
+        <li>De l'utilisation légale de l'application, notamment en ce qui concerne les droits d'auteur des fichiers que vous organisez.</li>
+        <li>De la configuration appropriée des permissions de votre système Windows pour permettre à Reminis d'accéder aux dossiers nécessaires.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Limitation de responsabilité</h2>
+      <div class="highlight">
+        <p><strong>Important :</strong> Bien que Reminis soit conçu pour ne jamais modifier vos fichiers sans votre accord, vous utilisez l'application à vos propres risques. Reminis ne peut être tenu responsable de toute perte de données, même accidentelle.</p>
+      </div>
+      <p>Dans les limites permises par la loi applicable, Reminis et ses développeurs ne peuvent être tenus responsables des dommages indirects, accessoires, particuliers ou consécutifs découlant de l'utilisation ou de l'impossibilité d'utiliser l'application.</p>
+      <p>La responsabilité totale de Reminis envers vous ne peut excéder le montant que vous avez payé pour l'application au cours des 12 derniers mois.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Propriété intellectuelle</h2>
+      <p>Reminis et tous ses composants (code, design, marque, logo) sont la propriété exclusive de leurs créateurs et sont protégés par les lois sur le droit d'auteur applicables au Québec et au Canada.</p>
+      <p>Les modèles IA utilisés par Reminis sont des logiciels open-source sous licences MIT et Apache 2.0. Leurs licences respectives sont disponibles dans les paramètres de l'application.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Mises à jour et continuité du service</h2>
+      <ul>
+        <li>Reminis peut publier des mises à jour pour corriger des bugs, améliorer les performances ou ajouter des fonctionnalités.</li>
+        <li>Certaines mises à jour peuvent être obligatoires pour continuer à utiliser l'application.</li>
+        <li>Reminis se réserve le droit d'arrêter le développement de l'application avec un préavis de 90 jours.</li>
+        <li>En cas d'arrêt du service, votre version locale continuera de fonctionner indéfiniment (Reminis est 100% local).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Droit applicable et juridiction</h2>
+      <p>Les présentes conditions sont régies par les lois de la province de Québec et les lois fédérales du Canada qui y sont applicables. Tout litige sera soumis à la juridiction exclusive des tribunaux du Québec.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">10</div>
+      <h2>Modifications des conditions</h2>
+      <p>Reminis se réserve le droit de modifier ces conditions à tout moment. Les modifications importantes vous seront notifiées via l'application avec un préavis raisonnable. La poursuite de l'utilisation de l'application après notification vaut acceptation des nouvelles conditions.</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Nous contacter</h3>
+      <p>Pour toute question relative aux présentes conditions :</p>
+      <p>📧 <a href="mailto:legal@reminis.app">legal@reminis.app</a></p>
+      <p>📍 Québec, Canada</p>
+    </div>
+  </div><!-- end fr -->
+
+  <div data-lang="en">
+    <div class="last-updated">📅 Last updated: May 2, 2026 · Version 1.0</div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Reminis, you agree to these Terms of Use. If you do not accept these terms, please do not use the application.</p>
+      <p>These terms apply to the Windows version of Reminis distributed through the Microsoft Store.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Description of Service</h2>
+      <p>Reminis is a local file and photo organization application for Windows. It analyzes your files locally using artificial intelligence installed on your device, suggests classifications and organizations, and allows you to approve or reject them. Reminis never modifies your files without your explicit consent.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>License</h2>
+      <p>Subject to compliance with these terms, Reminis grants you a personal, non-exclusive, non-transferable, and revocable license to use the application on your personal devices.</p>
+      <ul>
+        <li>You may not copy, modify, distribute, or sell the application.</li>
+        <li>You may not reverse engineer or attempt to extract the source code.</li>
+        <li>You may not use the application for commercial purposes without written authorization.</li>
+        <li>An active subscription or valid trial is required to access all features.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Trial Version and Subscription</h2>
+      <p>Reminis is available as a free trial allowing analysis of up to 500 files. Beyond this, a purchase through the Microsoft Store is required.</p>
+      <ul>
+        <li>Purchases are final. Refunds are subject to the Microsoft Store refund policy.</li>
+        <li>Prices may vary by region and are displayed in local currency in the Store.</li>
+        <li>Reminis reserves the right to change pricing with 30 days' notice for active subscriptions.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>User Responsibilities</h2>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>Backing up your files before using Reminis. We strongly recommend performing a complete backup before any analysis.</li>
+        <li>Legal use of the application, including copyright compliance for files you organize.</li>
+        <li>Properly configuring your Windows system permissions to allow Reminis access to necessary folders.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Limitation of Liability</h2>
+      <div class="highlight">
+        <p><strong>Important:</strong> While Reminis is designed never to modify your files without your consent, you use the application at your own risk. Reminis cannot be held responsible for any data loss, even accidental.</p>
+      </div>
+      <p>To the extent permitted by applicable law, Reminis and its developers shall not be liable for any indirect, incidental, special, or consequential damages arising from the use or inability to use the application.</p>
+      <p>Reminis's total liability to you shall not exceed the amount you paid for the application in the preceding 12 months.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Intellectual Property</h2>
+      <p>Reminis and all its components (code, design, brand, logo) are the exclusive property of their creators and are protected by copyright laws applicable in Quebec and Canada.</p>
+      <p>The AI models used by Reminis are open-source software under MIT and Apache 2.0 licenses. Their respective licenses are available in the application settings.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Updates and Service Continuity</h2>
+      <ul>
+        <li>Reminis may publish updates to fix bugs, improve performance, or add features.</li>
+        <li>Some updates may be mandatory to continue using the application.</li>
+        <li>Reminis reserves the right to discontinue development with 90 days' notice.</li>
+        <li>If service is discontinued, your local version will continue to function indefinitely (Reminis is 100% local).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Governing Law and Jurisdiction</h2>
+      <p>These terms are governed by the laws of the Province of Quebec and the applicable federal laws of Canada. Any dispute shall be subject to the exclusive jurisdiction of the courts of Quebec.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">10</div>
+      <h2>Changes to Terms</h2>
+      <p>Reminis reserves the right to modify these terms at any time. Material changes will be notified through the application with reasonable notice. Continued use of the application after notification constitutes acceptance of the new terms.</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Contact Us</h3>
+      <p>For any questions regarding these terms:</p>
+      <p>📧 <a href="mailto:legal@reminis.app">legal@reminis.app</a></p>
+      <p>📍 Quebec, Canada</p>
+    </div>
+  </div><!-- end en -->
+</div><!-- end tab-terms -->
+</div><!-- content-wrapper -->
+
+<footer>
+  <span>© 2026 Reminis · <span data-lang="fr">Tous droits réservés</span><span data-lang="en">All rights reserved</span> · Québec, Canada</span>
+  <span>v1.0 · <span data-lang="fr">100% local · Aucune donnée transmise</span><span data-lang="en">100% local · No data transmitted</span></span>
+</footer>
+
+<script>
+  function setLang(lang, btn) {
+    // Update body class
+    document.body.classList.remove('lang-fr', 'lang-en');
+    document.body.classList.add('lang-' + lang);
+    // Update button states
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // Update html lang
+    document.documentElement.lang = lang;
+  }
+
+  function showTab(tabId, btn) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    // Show selected
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Handle anchor navigation (#privacy, #terms)
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash === '#terms') {
+      document.querySelectorAll('.tab-btn')[1].click();
+    }
+    if (hash === '#privacy') {
+      document.querySelectorAll('.tab-btn')[0].click();
+    }
+  });
+</script>
+
+</body>
+</html>
